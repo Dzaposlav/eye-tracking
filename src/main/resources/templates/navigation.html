@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark" th:fragment="navigation"
+     xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class ="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/"><h3>Caffe and Nightlife</h3></a>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left mr-auto">
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" class="nav-link">Logout</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right ml-auto">
+                <!--<li sec:authorize="isAuthenticated()" class="nav-item"><a href="/" th:inline="text">[[${#authentication.name}]] </a></li>-->
+                <li sec:authorize="isAnonymous()" class="nav-item"><a th:href="@{/register/new}" id="registerLink" class="nav-link">Register</a></li>
+                <li sec:authorize="isAnonymous()" class="nav-item"><a th:href="@{/login}" id="loginLink" class="nav-link">Log in</a></li>
+
+                <li class="nav-item" sec:authorize="isAuthenticated()"><a th:href="@{/review/create}" class="nav-link">Nova Recenzija</a></li>
+                <li class="nav-item" sec:authorize="isAuthenticated()"><a th:href="@{/establishment/create}" class="nav-link">Dodaj kafić/noćni-klub</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+

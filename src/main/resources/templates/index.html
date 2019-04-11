@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="decorator">
+<head>
+
+</head>
+<body>
+<div class="container" layout:fragment="content">
+    <h1>Kviz</h1>
+    <div th:each="quiz : ${quizzes}" class="card-columns">
+        <div class="card bg-primary">
+            <div class="card-body text-center">
+                <p th:text="${quiz.name}" class="card-text"></p>
+            </div>
+        </div>
+    </div>
+
+    <h1>Ankete</h1>
+</div>
+
+<script type="text/javascript" th:inline="javascript">
+    var QUIZ_ID = /*[[${id}]]*/ null;
+</script>
+
+</body>
+</html>

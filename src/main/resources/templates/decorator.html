@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>CoffeeAndNightlife</title>
+
+    <div layout:fragment="script-head"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}"/>
+    <!--<link rel="stylesheet" th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}"/>-->
+
+    <div layout:fragment="css-libs"/>
+
+</head>
+<body>
+
+<div th:replace="partials/navigation :: navigation"></div>
+
+<section layout:fragment="content">
+    <!-- CONTENT GOES HERE -->
+</section>
+
+<script th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.1.0/js/bootstrap.min.js}"></script>
+
+<script>
+    jQuery(document).ready(function($) {
+        $("*[data-href]").on("click", function() {
+            window.location = $(this).data("href");
+        });
+    });
+</script>
+
+<div layout:fragment="scripts">
+    <!-- ADD ADDITIONAL SCRIPTS-->
+</div>
+
+</body>
+</html>
